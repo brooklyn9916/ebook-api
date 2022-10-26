@@ -38,7 +38,7 @@ class BookController extends Controller
     {
         $book = new Book();
         $book->title = $request->input('title');
-        $book->description = $request->input('description');
+        $book->description  = $request->input('description');
         $book->author = $request->input('author');
         $book->publisher = $request->input('publisher');
         $book->date_of_issue = $request->input('date_of_issue');
@@ -102,6 +102,7 @@ class BookController extends Controller
             $book->date_of_issue = $request->date_of_issue ? $request->date_of_issue : $book->date_of_issue;
             $book->save();
 
+            
             return response()->json([
                 'status' => 200,
                 'data' => $book
